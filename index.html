@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Counter</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h1 {
+        text-align: center;
+        margin-top: 100px;
+      }
+      #counter {
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #counter {
+        text-align: center;
+        font-size: 50px;
+        font-weight: bold;
+        margin-bottom: 30px;
+      }
+      p {
+        border: 1px solid blue;
+        border-radius: 5px;
+        margin: 5px;
+        padding: 10px;
+        cursor: pointer;
+      }
+      p:hover {
+        background-color: grey;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Counter</h1>
+    <div id="counter">0</div>
+    <div class="container">
+      <p id="decrease">Decrease</p>
+      <p id="reset">Reset</p>
+      <p id="increase">Increase</p>
+    </div>
+    <script>
+      const decrease = document.getElementById("decrease");
+      const reset = document.getElementById("reset");
+      const increase = document.getElementById("increase");
+      const counter = document.getElementById("counter");
+
+      decrease.addEventListener("click", function () {
+        let value = counter.innerHTML;
+        value = parseInt(value);
+        counter.innerHTML = --value;
+        if (parseInt(counter.innerHTML) < 0) {
+          counter.style.color = "red";
+        } else if (parseInt(counter.innerHTML) == 0) {
+          counter.style.color = "black";
+        } else {
+          counter.style.color = "green";
+        }
+      });
+      increase.addEventListener("click", function () {
+        let value = counter.innerHTML;
+        value = parseInt(value);
+        counter.innerHTML = ++value;
+        if (parseInt(counter.innerHTML) < 0) {
+          counter.style.color = "red";
+        } else if (parseInt(counter.innerHTML) == 0) {
+          counter.style.color = "black";
+        } else {
+          counter.style.color = "green";
+        }
+      });
+      reset.addEventListener("click", function () {
+        counter.innerHTML = 0;
+        counter.style.color = "black";
+      });
+    </script>
+  </body>
+</html>
